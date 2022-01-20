@@ -8,11 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DnaStrandTest {
 
-    private static void execute() {
-        DnaStrand.makeComplement("ATAE");
-        int i;
-    }
-
     @Test
     public void test01() {
         assertEquals("TTTT", DnaStrand.makeComplement("AAAA"));
@@ -30,6 +25,6 @@ class DnaStrandTest {
 
     @Test
     public void testWrongCharacter() {
-        assertThrows(RuntimeException.class, DnaStrandTest::execute);
+        assertThrows(RuntimeException.class, () -> DnaStrand.makeComplement("ATAE"));
     }
 }
