@@ -4,6 +4,7 @@ import com.company.DnaStrand;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DnaStrandTest {
 
@@ -20,5 +21,13 @@ class DnaStrandTest {
     @Test
     public void test03() {
         assertEquals("CATA", DnaStrand.makeComplement("GTAT"));
+    }
+
+    @Test
+    public void testWrongCharacter() {
+        assertThrows(RuntimeException.class, () -> {
+            DnaStrand.makeComplement("ATAE");
+            int i;
+        });
     }
 }
